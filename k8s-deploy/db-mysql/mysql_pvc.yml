@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-volume-claim
+  labels:
+    app: mysql
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi

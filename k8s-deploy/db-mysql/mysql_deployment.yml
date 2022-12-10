@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 3306
+          envFrom:
+            - configMapRef:
+                name: mysql-secret
+          volumeMounts:
+            - mountPath: /var/lib/mysql/data
+              name: mysqldata
+      volumes:
+        - name: mysqldata
+          persistentVolumeClaim:
+            claimName: mysql-volume-claim

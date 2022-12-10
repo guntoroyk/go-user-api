@@ -5,10 +5,10 @@
     "Secret": "secret"
   },
   "DB": {
-    "Host": "db",
+    "Host": "db4free.net",
     "Port": "3306",
-    "User": "root",
-    "Password": "root",
-    "Name": "go-user-api-db"
+    "User": "go_user_api_user",
+    "Password": "DVjDVk4QAnvuP3",
+    "Name": "go_user_api_db"
   }
 }

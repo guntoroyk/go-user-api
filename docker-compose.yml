@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: go-user-api-db
+      MYSQL_DATABASE: go_user_api_db
     volumes:
       - ./storage/migrations.sql:/docker-entrypoint-initdb.d/dump.sql
     ports:
@@ -21,6 +21,7 @@ services:
   app:
     build:
       context: ./
+    # image: guntoroyk/go-user-api:1.0.0
     restart: always
     ports:
       - "8000:8000"

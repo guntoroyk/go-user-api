@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-user-api
+  labels:
+    app: go-user-api
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: go-user-api
+  template:
+    metadata:
+      labels:
+        app: go-user-api
+    spec:
+      containers:
+        - name: go-user-api
+          image: guntoroyk/go-user-api:1.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000

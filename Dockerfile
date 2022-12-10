@@ -1,5 +1,5 @@
 # Get Go image from DockerHub.
-FROM golang:1.19 AS api
+FROM golang:1.19 AS build
 
 # Set working directory.
 WORKDIR /compiler
@@ -14,8 +14,14 @@ RUN go mod download
 COPY . .
 
 # Build our application.
-RUN go build -o go-user-api ./main.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o go-user-api ./main.go
+
+# Use 'scratch' image for mini build.
+FROM scratch AS prod
+
+# Copy our compiled executable and allfolders from the last stage.
+COPY --from=build /compiler/ .
 
 # Run application and expose port 8000.
 EXPOSE 8000
-CMD ["./go-user-api"]
+ENTRYPOINT [ "./go-user-api" ]

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-secret
+  labels:
+    app: mysql
+data:
+  MYSQL_DATABASE: go-user-api-db
+  MYSQL_ROOT_PASSWORD: root

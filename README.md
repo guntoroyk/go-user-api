@@ -21,11 +21,21 @@ The API will available at http://localhost:8000
 
 # Credential
 
-Role: Admin
+- Role: Admin
 
+```
 Username: admin
 
 Password: 1234
+```
+
+- Role: User
+
+```
+Username: user
+
+Password: 1234
+```
 
 # API Documentation
 

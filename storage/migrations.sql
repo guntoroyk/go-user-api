@@ -7,20 +7,8 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-CREATE DATABASE IF NOT EXISTS `go-user-api-db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `go-user-api-db`;
-
-DROP TABLE IF EXISTS `cakes`;
-CREATE TABLE `cakes` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `description` text,
-  `rating` int NOT NULL,
-  `image` varchar(255),
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `go_user_api_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `go_user_api_db`;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
