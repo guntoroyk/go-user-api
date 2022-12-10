@@ -1,0 +1,14 @@
+{
+  "App": {
+    "Host": "0.0.0.0",
+    "Port": "8000",
+    "Secret": "secret"
+  },
+  "DB": {
+    "Host": "localhost",
+    "Port": "3306",
+    "User": "root",
+    "Password": "root",
+    "Name": "go-user-api-db"
+  }
+}
