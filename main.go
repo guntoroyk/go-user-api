@@ -43,6 +43,8 @@ func main() {
 	// Routes
 	e.POST("/login", handler.Login)
 
+	e.File("/docs", "public/go-user-api-postman_collection.json")
+
 	jwtConfig := middleware.JWTConfig{
 		Claims:     &entity.JwtCustomClaims{},
 		SigningKey: []byte(config.App.Secret),

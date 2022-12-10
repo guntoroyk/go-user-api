@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "9e93e6a5-57ca-4250-931d-276052fe8dc0",
+		"name": "Go User API (Dealls Job Test)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6929584"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"igun\",\n  \"username\": \"igun2\",\n  \"password\": \"12345\",\n  \"phone\": \"085678765444\",\n  \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"igun\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Dec 2022 22:46:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "308"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA3MTIzOTYsImlhdCI6MTY3MDYyNjAwMH0.vs26ttF7BN8Be0iMc0R-cyAZCot1CsVmsSF5eub3v1M\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzEyMzA3OTYsImlhdCI6MTY3MDYyNjAwMH0.VhYGZ93I9_43QBDiBcn-nQ9l50vFfuJ34mGuFWo6bTU\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Docs",
+			"item": [
+				{
+					"name": "Docs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/docs",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"docs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Docs",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/docs",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"docs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Accept-Ranges",
+									"value": "bytes"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4827"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Last-Modified",
+									"value": "Sat, 10 Dec 2022 06:42:54 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Dec 2022 07:18:56 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"info\": {\n        \"_postman_id\": \"9e93e6a5-57ca-4250-931d-276052fe8dc0\",\n        \"name\": \"Go User API (Dealls Job Test)\",\n        \"schema\": \"https://schema.getpostman.com/json/collection/v2.1.0/collection.json\",\n        \"_exporter_id\": \"6929584\"\n    },\n    \"item\": [\n        {\n            \"name\": \"User\",\n            \"item\": [\n                {\n                    \"name\": \"Create User\",\n                    \"request\": {\n                        \"auth\": {\n                            \"type\": \"bearer\",\n                            \"bearer\": [\n                                {\n                                    \"key\": \"token\",\n                                    \"value\": \"{{token}}\",\n                                    \"type\": \"string\"\n                                }\n                            ]\n                        },\n                        \"method\": \"POST\",\n                        \"header\": [],\n                        \"body\": {\n                            \"mode\": \"raw\",\n                            \"raw\": \"{\\n  \\\"name\\\": \\\"Guntoro\\\",\\n  \\\"username\\\": \\\"guntoro\\\",\\n  \\\"password\\\": \\\"1234\\\",\\n  \\\"phone\\\": \\\"085678765444\\\",\\n  \\\"role\\\": \\\"user\\\"\\n}\",\n                            \"options\": {\n                                \"raw\": {\n                                    \"language\": \"json\"\n                                }\n                            }\n                        },\n                        \"url\": {\n                            \"raw\": \"{{url}}/users\",\n                            \"host\": [\n                                \"{{url}}\"\n                            ],\n                            \"path\": [\n                                \"users\"\n                            ]\n                        }\n                    },\n                    \"response\": []\n                },\n                {\n                    \"name\": \"Update User\",\n                    \"request\": {\n                        \"auth\": {\n                            \"type\": \"bearer\",\n                            \"bearer\": [\n                                {\n                                    \"key\": \"token\",\n                                    \"value\": \"{{token}}\",\n                                    \"type\": \"string\"\n                                }\n                            ]\n                        },\n                        \"method\": \"PATCH\",\n                        \"header\": [],\n                        \"body\": {\n                            \"mode\": \"raw\",\n                            \"raw\": \"{\\n  \\\"name\\\": \\\"igun\\\",\\n  \\\"username\\\": \\\"igun2\\\",\\n  \\\"password\\\": \\\"12345\\\",\\n  \\\"phone\\\": \\\"085678765444\\\",\\n  \\\"role\\\": \\\"admin\\\"\\n}\",\n                            \"options\": {\n                                \"raw\": {\n                                    \"language\": \"json\"\n                                }\n                            }\n                        },\n                        \"url\": {\n                            \"raw\": \"{{url}}/users/1\",\n                            \"host\": [\n                                \"{{url}}\"\n                            ],\n                            \"path\": [\n                                \"users\",\n                                \"1\"\n                            ]\n                        }\n                    },\n                    \"response\": []\n                },\n                {\n                    \"name\": \"Get Users\",\n                    \"request\": {\n                        \"auth\": {\n                            \"type\": \"bearer\",\n                            \"bearer\": [\n                                {\n                                    \"key\": \"token\",\n                                    \"value\": \"{{token}}\",\n                                    \"type\": \"string\"\n                                }\n                            ]\n                        },\n                        \"method\": \"GET\",\n                        \"header\": [],\n                        \"url\": {\n                            \"raw\": \"{{url}}/users\",\n                            \"host\": [\n                                \"{{url}}\"\n                            ],\n                            \"path\": [\n                                \"users\"\n                            ]\n                        }\n                    },\n                    \"response\": []\n                },\n                {\n                    \"name\": \"Get User by ID\",\n                    \"request\": {\n                        \"auth\": {\n                            \"type\": \"bearer\",\n                            \"bearer\": [\n                                {\n                                    \"key\": \"token\",\n                                    \"value\": \"{{token}}\",\n                                    \"type\": \"string\"\n                                }\n                            ]\n                        },\n                        \"method\": \"GET\",\n                        \"header\": [],\n                        \"url\": {\n                            \"raw\": \"{{url}}/users/1\",\n                            \"host\": [\n                                \"{{url}}\"\n                            ],\n                            \"path\": [\n                                \"users\",\n                                \"1\"\n                            ]\n                        }\n                    },\n                    \"response\": []\n                },\n                {\n                    \"name\": \"Delete User\",\n                    \"request\": {\n                        \"method\": \"DELETE\",\n                        \"header\": [],\n                        \"url\": {\n                            \"raw\": \"{{url}}/users/1\",\n                            \"host\": [\n                                \"{{url}}\"\n                            ],\n                            \"path\": [\n                                \"users\",\n                                \"1\"\n                            ]\n                        }\n                    },\n                    \"response\": []\n                }\n            ]\n        },\n        {\n            \"name\": \"Auth\",\n            \"item\": [\n                {\n                    \"name\": \"Login\",\n                    \"request\": {\n                        \"method\": \"POST\",\n                        \"header\": [],\n                        \"body\": {\n                            \"mode\": \"raw\",\n                            \"raw\": \"{\\n    \\\"username\\\": \\\"user\\\",\\n    \\\"password\\\": \\\"1234\\\"\\n}\",\n                            \"options\": {\n                                \"raw\": {\n                                    \"language\": \"json\"\n                                }\n                            }\n                        },\n                        \"url\": {\n                            \"raw\": \"{{url}}/login\",\n                            \"host\": [\n                                \"{{url}}\"\n                            ],\n                            \"path\": [\n                                \"login\"\n                            ]\n                        }\n                    },\n                    \"response\": [\n                        {\n                            \"name\": \"Login\",\n                            \"originalRequest\": {\n                                \"method\": \"POST\",\n                                \"header\": [],\n                                \"body\": {\n                                    \"mode\": \"raw\",\n                                    \"raw\": \"{\\n    \\\"username\\\": \\\"igun\\\",\\n    \\\"password\\\": \\\"1234\\\"\\n}\",\n                                    \"options\": {\n                                        \"raw\": {\n                                            \"language\": \"json\"\n                                        }\n                                    }\n                                },\n                                \"url\": {\n                                    \"raw\": \"{{url}}/login\",\n                                    \"host\": [\n                                        \"{{url}}\"\n                                    ],\n                                    \"path\": [\n                                        \"login\"\n                                    ]\n                                }\n                            },\n                            \"status\": \"OK\",\n                            \"code\": 200,\n                            \"_postman_previewlanguage\": \"json\",\n                            \"header\": [\n                                {\n                                    \"key\": \"Content-Type\",\n                                    \"value\": \"application/json; charset=UTF-8\"\n                                },\n                                {\n                                    \"key\": \"Date\",\n                                    \"value\": \"Fri, 09 Dec 2022 22:46:40 GMT\"\n                                },\n                                {\n                                    \"key\": \"Content-Length\",\n                                    \"value\": \"308\"\n                                }\n                            ],\n                            \"cookie\": [],\n                            \"body\": \"{\\n    \\\"code\\\": 200,\\n    \\\"data\\\": {\\n        \\\"token\\\": \\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA3MTIzOTYsImlhdCI6MTY3MDYyNjAwMH0.vs26ttF7BN8Be0iMc0R-cyAZCot1CsVmsSF5eub3v1M\\\",\\n        \\\"refresh_token\\\": \\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzEyMzA3OTYsImlhdCI6MTY3MDYyNjAwMH0.VhYGZ93I9_43QBDiBcn-nQ9l50vFfuJ34mGuFWo6bTU\\\"\\n    }\\n}\"\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
