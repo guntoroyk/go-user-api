@@ -9,7 +9,9 @@ GitHub Repository: https://github.com/guntoroyk/go-user-api
 
 This API was deployed to Google Kubernetes Engine (GKE) Cluster with public IP `34.142.137.17`.
 
-Click button bellow to try the API through Postman:
+API docs can be accessed through this link: https://documenter.getpostman.com/view/6929584/2s8YzTTh9w
+
+Or, click button bellow to try the API in Postman:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](<https://app.getpostman.com/run-collection/6929584-9e93e6a5-57ca-4250-931d-276052fe8dc0?action=collection%2Ffork&collection-url=entityId%3D6929584-9e93e6a5-57ca-4250-931d-276052fe8dc0%26entityType%3Dcollection%26workspaceId%3D376ac51e-7371-4129-b917-abb587ed642f#?env%5BGo%20User%20API%20(prod)%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiIzNC4xNDIuMTM3LjE3IiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiIzNC4xNDIuMTM3LjE3Iiwic2Vzc2lvbkluZGV4IjowfSx7ImtleSI6InRva2VuIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiZGVmYXVsdCIsInNlc3Npb25WYWx1ZSI6IiIsInNlc3Npb25JbmRleCI6MX1d>)
 
@@ -65,6 +67,14 @@ kubectl get svc
 kubectl get pods
 ```
 
+## Run the unit test
+
+```
+go mod vendor -v
+
+go test ./... -v
+```
+
 ## Software Design & Architecture Diagram
 
 This API has 4 domains layer to follow the Clean Architecture:
@@ -78,13 +88,9 @@ With additional `Middleware` to intercept HTTP request & response, and `Proxy` b
 
 ![Alt Software Design](./docs/software-design-diagram.png?raw=true "Software Design")
 
-
-
-
-
 This API was deployed to Google Kubernetes Engine (GKE) cluster with following diagram:
 
-![Alt Architecture Diagram](./docs/architecture-diagram.png?raw=true "Architecture Diagram")
+![Alt Architecture Diagram](./docs/architecture-diagram-2.png?raw=true "Architecture Diagram")
 
 The kubernetes deployment config is located on `./k8s-deploy` folder.
 
