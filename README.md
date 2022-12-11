@@ -15,6 +15,8 @@ Click button bellow to try the API through Postman:
 
 Or click this URL to open Postman Public Collection https://elements.getpostman.com/redirect?entityId=6929584-9e93e6a5-57ca-4250-931d-276052fe8dc0&entityType=collection
 
+Don't forget to change the Environment located on the upper right corner of Postman app.
+
 If you having trouble accessing that URL, you can download the the postman-collection.json here http://34.142.137.17/docs, then import it to your Postman desktop application.
 
 # Credential
