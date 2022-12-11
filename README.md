@@ -74,9 +74,13 @@ This API has 4 domains layer to follow the Clean Architecture:
 - Usecase Layer
 - Handler Layer
 
-With additional `Middleware` to intercept HTTP request & response, and `Proxy` between the Usecase and Repository to modify input & output data.
+With additional `Middleware` to intercept HTTP request & response, and `Proxy` between the Usecase and Repository to modify input & output data (here I used it to hash the password).
 
 ![Alt Software Design](./docs/software-design-diagram.png?raw=true "Software Design")
+
+
+
+
 
 This API was deployed to Google Kubernetes Engine (GKE) cluster with following diagram:
 
