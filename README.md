@@ -102,22 +102,26 @@ Here is to check the deployment result:
 
 ![Alt Login](./docs/flow-chart-login.png?raw=true "Login")
 
-2. Create User
+2. Refresh Token
+
+![Alt Refresh Token](./docs/flow-chart-refresh-token.png?raw=true "Refresh Token")
+
+3. Create User
 
 ![Alt Create User](./docs/flow-chart-create-user.png?raw=true "Create User")
 
-3. Update User
+4. Update User
 
 ![Alt Update User](./docs/flow-chart-update-user.png?raw=true "Update User")
 
-4. Get Users
+5. Get Users
 
 ![Alt Get Users](./docs/flow-chart-get-user.png?raw=true "Get Users")
 
-5. Get User By ID
+6. Get User By ID
 
 ![Alt Get User By ID](./docs/flow-chart-get-user-by-id.png?raw=true "Get User By ID")
 
-6. Delete User
+7. Delete User
 
 ![Alt Delete User](./docs/flow-chart-delete-user.png?raw=true "Delete User")

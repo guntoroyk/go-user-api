@@ -10,7 +10,17 @@ type Token struct {
 
 // JwtCustomClaims is the struct for a custom claims
 type JwtCustomClaims struct {
-	Username string `json:"username"`
-	Role     string `json:"role"`
+	Username string    `json:"username"`
+	Role     string    `json:"role"`
+	Type     TokenType `json:"type"`
 	jwt.RegisteredClaims
 }
+
+// TokenType is the type for token type
+type TokenType string
+
+// Token types
+const (
+	AccessToken  TokenType = "access"
+	RefreshToken TokenType = "refresh"
+)

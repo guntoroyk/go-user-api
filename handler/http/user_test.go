@@ -13,10 +13,10 @@ import (
 )
 
 var (
-	successGetUsersJSON   = "{\"code\":200,\"data\":[{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"password\":\"\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}]}\n"
-	successGetUserJSON    = "{\"code\":200,\"data\":{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"password\":\"\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}}\n"
-	successUpdateUserJSON = "{\"code\":200,\"data\":{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"password\":\"\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}}\n"
-	successCreateUserJSON = "{\"code\":201,\"data\":{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"password\":\"\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}}\n"
+	successGetUsersJSON   = "{\"code\":200,\"data\":[{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}]}\n"
+	successGetUserJSON    = "{\"code\":200,\"data\":{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}}\n"
+	successUpdateUserJSON = "{\"code\":200,\"data\":{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}}\n"
+	successCreateUserJSON = "{\"code\":201,\"data\":{\"id\":1,\"name\":\"User\",\"username\":\"User1\",\"phone\":\"\",\"role\":\"\",\"created_at\":\"2021-01-01 00:00:00\",\"updated_at\":\"2021-01-01 00:00:00\"}}\n"
 )
 
 func Test_handler_GetUsers(t *testing.T) {

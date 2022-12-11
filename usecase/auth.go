@@ -46,12 +46,43 @@ func (c *authUsecase) Login(username, password string) (*entity.Token, error) {
 		return nil, entity.ErrWrongCredentials
 	}
 
-	token, err := c.tokenService.GenerateToken(user.Username, string(user.Role), tokenExpire)
+	token, err := c.tokenService.GenerateToken(
+		user.Username, string(user.Role),
+		entity.AccessToken, tokenExpire,
+	)
 	if err != nil {
 		return nil, err
 	}
 
-	refreshToken, err := c.tokenService.GenerateToken(user.Username, string(user.Role), refreshTokenExpire)
+	refreshToken, err := c.tokenService.GenerateToken(
+		user.Username, string(user.Role),
+		entity.RefreshToken, refreshTokenExpire,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return &entity.Token{
+		Token:        token,
+		RefreshToken: refreshToken,
+	}, nil
+}
+
+// RefreshToken will refresh token
+func (c *authUsecase) RefreshToken(username, role string) (*entity.Token, error) {
+
+	token, err := c.tokenService.GenerateToken(
+		username, role,
+		entity.AccessToken, tokenExpire,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	refreshToken, err := c.tokenService.GenerateToken(
+		username, role,
+		entity.RefreshToken, refreshTokenExpire,
+	)
 	if err != nil {
 		return nil, err
 	}

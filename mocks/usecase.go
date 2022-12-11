@@ -49,6 +49,21 @@ func (mr *MockAuthUsecaseItfMockRecorder) Login(username, password interface{}) 
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Login", reflect.TypeOf((*MockAuthUsecaseItf)(nil).Login), username, password)
 }
 
+// RefreshToken mocks base method.
+func (m *MockAuthUsecaseItf) RefreshToken(username, role string) (*entity.Token, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RefreshToken", username, role)
+	ret0, _ := ret[0].(*entity.Token)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// RefreshToken indicates an expected call of RefreshToken.
+func (mr *MockAuthUsecaseItfMockRecorder) RefreshToken(username, role interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RefreshToken", reflect.TypeOf((*MockAuthUsecaseItf)(nil).RefreshToken), username, role)
+}
+
 // MockUserUsecaseItf is a mock of UserUsecaseItf interface.
 type MockUserUsecaseItf struct {
 	ctrl     *gomock.Controller

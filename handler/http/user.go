@@ -15,7 +15,7 @@ func (h *handler) GetUsers(c echo.Context) error {
 
 	resp := HttpResponse{
 		Code: http.StatusOK,
-		Data: users,
+		Data: TransformUsers(users),
 	}
 
 	if err != nil {
@@ -42,7 +42,7 @@ func (h *handler) GetUser(c echo.Context) error {
 		resp.Error = err.Error()
 	} else {
 		resp.Code = http.StatusOK
-		resp.Data = user
+		resp.Data = user.ExcludePassword()
 	}
 
 	return c.JSON(resp.Code, resp)
@@ -67,7 +67,7 @@ func (h *handler) CreateUser(c echo.Context) error {
 		resp.Error = err.Error()
 	} else {
 		resp.Code = http.StatusCreated
-		resp.Data = user
+		resp.Data = user.ExcludePassword()
 	}
 
 	return c.JSON(resp.Code, resp)
@@ -98,7 +98,7 @@ func (h *handler) UpdateUser(c echo.Context) error {
 		resp.Error = err.Error()
 	} else {
 		resp.Code = http.StatusOK
-		resp.Data = user
+		resp.Data = user.ExcludePassword()
 	}
 
 	return c.JSON(resp.Code, resp)

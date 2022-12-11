@@ -5,6 +5,7 @@ import "github.com/guntoroyk/go-user-api/entity"
 // AuthUsecaseItf is the interface for the AuthUsecase struct
 type AuthUsecaseItf interface {
 	Login(username, password string) (*entity.Token, error)
+	RefreshToken(username, role string) (*entity.Token, error)
 }
 
 // UserUsecaseItf is the interface for the UserUsecase struct

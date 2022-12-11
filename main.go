@@ -51,6 +51,8 @@ func main() {
 	}
 	auth := e.Group("", middleware.JWTWithConfig(jwtConfig))
 
+	auth.GET("/refresh-token", handler.RefreshToken)
+
 	auth.GET("/users", handler.GetUsers, cMiddleware.Authorize(entity.RoleAdmin, entity.RoleUser))
 	auth.GET("/users/:id", handler.GetUser, cMiddleware.Authorize(entity.RoleAdmin, entity.RoleUser))
 

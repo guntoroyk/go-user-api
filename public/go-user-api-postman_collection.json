@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "9e93e6a5-57ca-4250-931d-276052fe8dc0",
-		"name": "Go User API (Dealls Job Test)",
+		"name": "Go User API (Usedeall Test)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "6929584"
 	},
@@ -26,7 +26,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+							"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro2\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -43,7 +43,185 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 04:23:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "248"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Guntoro\",\n        \"username\": \"guntoro\",\n        \"phone\": \"085678765444\",\n        \"role\": \"user\",\n        \"created_at\": \"2022-12-11 04:23:42\",\n        \"updated_at\": \"2022-12-11 04:23:42\"\n    }\n}"
+						},
+						{
+							"name": "No JWT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 04:19:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 04:22:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Username already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Guntoro\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 07:04:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"error\": \"user already exist\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Update User",
@@ -62,7 +240,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"igun\",\n  \"username\": \"igun2\",\n  \"password\": \"12345\",\n  \"phone\": \"085678765444\",\n  \"role\": \"admin\"\n}",
+							"raw": "{\n  \"name\": \"Guntoro Updatedd\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -70,17 +248,108 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/users/1",
+							"raw": "{{url}}/users/4",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"4"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Guntoro Updated\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/4",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 06:54:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"Guntoro Updated\",\n        \"username\": \"guntoro\",\n        \"phone\": \"085678765444\",\n        \"role\": \"user\"\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Guntoro Updated\",\n  \"username\": \"guntoro\",\n  \"password\": \"1234\",\n  \"phone\": \"085678765444\",\n  \"role\": \"user\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/43",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"43"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 06:54:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"error\": \"user not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Users",
@@ -107,7 +376,43 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 07:03:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"admin\",\n            \"username\": \"admin\",\n            \"phone\": \"085678765444\",\n            \"role\": \"admin\",\n            \"created_at\": \"2022-12-10 07:25:34\",\n            \"updated_at\": \"2022-12-10 07:25:34\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"user\",\n            \"username\": \"user\",\n            \"phone\": \"085678765445\",\n            \"role\": \"user\",\n            \"created_at\": \"2022-12-10 07:25:49\",\n            \"updated_at\": \"2022-12-10 07:25:49\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Guntoro Updated\",\n            \"username\": \"guntoro\",\n            \"phone\": \"085678765444\",\n            \"role\": \"user\",\n            \"created_at\": \"2022-12-11 13:53:52\",\n            \"updated_at\": \"2022-12-11 13:54:10\"\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Get User by ID",
@@ -135,25 +440,177 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get User by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 04:22:39 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"admin\",\n        \"username\": \"admin\",\n        \"phone\": \"085678765444\",\n        \"role\": \"admin\",\n        \"created_at\": \"2022-12-10 07:25:34\",\n        \"updated_at\": \"2022-12-10 07:25:34\"\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/12",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"12"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 06:53:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"error\": \"user not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/users/1",
+							"raw": "{{url}}/users/3",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"1"
+								"3"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"3"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 04:24:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/11",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"11"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 04:24:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"error\": \"user not found\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -167,7 +624,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"1234\"\n}",
+							"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"1234\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -192,7 +649,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"username\": \"igun\",\n    \"password\": \"1234\"\n}",
+									"raw": "{\n    \"username\": \"user\",\n    \"password\": \"1234\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -219,15 +676,113 @@
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 09 Dec 2022 22:46:40 GMT"
+									"value": "Sun, 11 Dec 2022 04:19:48 GMT"
 								},
 								{
 									"key": "Content-Length",
-									"value": "308"
+									"value": "348"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA3MTIzOTYsImlhdCI6MTY3MDYyNjAwMH0.vs26ttF7BN8Be0iMc0R-cyAZCot1CsVmsSF5eub3v1M\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzEyMzA3OTYsImlhdCI6MTY3MDYyNjAwMH0.VhYGZ93I9_43QBDiBcn-nQ9l50vFfuJ34mGuFWo6bTU\"\n    }\n}"
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwidHlwZSI6ImFjY2VzcyIsImV4cCI6MTY3MDgyNzY0N30.qjeZelWHD20fMxlPxO43Lptq_IRlzGojjlDoTbQd5Uo\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwidHlwZSI6InJlZnJlc2giLCJleHAiOjE2NzEzNDYwNDd9.xV0r6WXvgAfVcPHWSRyqvYF9-D6g8oShXQdqP7TJqXI\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{refresh_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/refresh-token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh Token",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/refresh-token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"refresh-token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 06:52:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "397"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwidHlwZSI6ImFjY2VzcyIsImV4cCI6MTY3MDgyNzkwN30.tMkuPi5LAxzBjE2GHdiPB6kRQNLU_zdfzyybPFf5O-w\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwidHlwZSI6InJlZnJlc2giLCJleHAiOjE2NzEzNDYzMDd9.lwOSfQDOnplwpikXxpYqnw1c_cHAhDU3l-f90D2cZ7I\"\n    }\n}"
+						},
+						{
+							"name": "Invalid Token Type",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/refresh-token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"refresh-token"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 11 Dec 2022 06:51:57 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 401,\n    \"error\": \"Invalid token type\"\n}"
 						}
 					]
 				}

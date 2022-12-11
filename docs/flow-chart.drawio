@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="VzQZqp9PzR304GT8cQcO" name="Page-1">
-        <mxGraphModel dx="1288" dy="1700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1456" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -572,7 +572,7 @@
                         <mxPoint x="130" y="214.99999999999977" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="287" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="231">
+                <mxCell id="287" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="231" vertex="1" connectable="0">
                     <mxGeometry x="-0.7303" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
@@ -685,6 +685,104 @@
                 <mxCell id="286" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" parent="285" vertex="1" connectable="0">
                     <mxGeometry x="-0.8756" y="1" relative="1" as="geometry">
                         <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="317" value="Refresh Token" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;fontSize=18;strokeColor=default;" vertex="1" parent="1">
+                    <mxGeometry x="-570" y="130" width="620" height="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="318" value="Middleware" style="swimlane;startSize=20;fontSize=18;strokeColor=default;" vertex="1" parent="317">
+                    <mxGeometry y="20" width="120" height="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="346" value="token header valid?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontSize=12;" vertex="1" parent="318">
+                    <mxGeometry x="27.5" y="100" width="65" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="319" value="Handler" style="swimlane;startSize=20;fontSize=18;strokeColor=default;" vertex="1" parent="317">
+                    <mxGeometry x="120" y="20" width="120" height="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="322" value="Call usecase refresh token" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontSize=12;" vertex="1" parent="319">
+                    <mxGeometry x="25" y="290" width="90" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="323" value="map response &amp;amp; handle error" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontSize=12;" vertex="1" parent="319">
+                    <mxGeometry x="20" y="550" width="90" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="360" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="319" source="348" target="323">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-10" y="185"/>
+                            <mxPoint x="-10" y="395"/>
+                            <mxPoint x="65" y="395"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="361" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="360">
+                    <mxGeometry x="-0.7311" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="362" value="Yes" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="319" source="348" target="322">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="348" value="if token type is &quot;refresh&quot;?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fontSize=12;" vertex="1" parent="319">
+                    <mxGeometry x="25" y="130" width="90" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="324" value="Usecase" style="swimlane;startSize=20;fontSize=18;strokeColor=default;" vertex="1" parent="317">
+                    <mxGeometry x="240" y="20" width="120" height="650" as="geometry">
+                        <mxRectangle x="240" y="20" width="40" height="460" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="330" value="Generate token &amp;amp; refresh token" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontSize=12;" vertex="1" parent="324">
+                    <mxGeometry x="25" y="370" width="90" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="331" value="Proxy" style="swimlane;startSize=20;fontSize=18;strokeColor=default;" vertex="1" parent="317">
+                    <mxGeometry x="360" y="20" width="140" height="650" as="geometry">
+                        <mxRectangle x="280" y="20" width="40" height="460" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="332" value="Repo" style="swimlane;startSize=20;fontSize=18;strokeColor=default;" vertex="1" parent="317">
+                    <mxGeometry x="500" y="20" width="120" height="650" as="geometry">
+                        <mxRectangle x="280" y="20" width="40" height="460" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="336" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="317" source="330" target="323">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="339" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="317" source="322" target="330">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="255" y="175" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="363" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="317" source="346" target="348">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="119" y="160"/>
+                            <mxPoint x="119" y="120"/>
+                            <mxPoint x="190" y="120"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="364" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="363">
+                    <mxGeometry x="-0.8138" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="347" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="343" target="346">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="343" value="&lt;font style=&quot;font-size: 12px&quot;&gt;GET /refresh-token&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="-740" y="190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="344" value="&lt;font style=&quot;font-size: 12px&quot;&gt;End&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;fontSize=18;" vertex="1" parent="1">
+                    <mxGeometry x="-720" y="695" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="345" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;" edge="1" parent="1" source="323" target="344">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="365" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="346" target="344">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="366" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="365">
+                    <mxGeometry x="-0.8318" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
             </root>

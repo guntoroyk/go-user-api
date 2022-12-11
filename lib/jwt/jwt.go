@@ -1,7 +1,6 @@
 package jwt
 
 import (
-	"errors"
 	"time"
 
 	"github.com/golang-jwt/jwt/v4"
@@ -20,11 +19,12 @@ func NewTokenService(secret string) TokenServiceItf {
 }
 
 // GenerateToken will generate a token
-func (t *tokenService) GenerateToken(username, role string, expire time.Time) (string, error) {
+func (t *tokenService) GenerateToken(username, role string, tokenType entity.TokenType, expire time.Time) (string, error) {
 	// Set custom claims
 	claims := &entity.JwtCustomClaims{
 		Username: username,
 		Role:     role,
+		Type:     tokenType,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: &jwt.NumericDate{
 				Time: expire,
@@ -41,24 +41,4 @@ func (t *tokenService) GenerateToken(username, role string, expire time.Time) (s
 	}
 
 	return tokenString, nil
-}
-
-// ValidateToken will validate a token
-func (t *tokenService) ValidateToken(tokenString string) bool {
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
-			return nil, errors.New("unexpected signing method")
-		}
-		return []byte(t.secret), nil
-	})
-
-	if err != nil {
-		return false
-	}
-
-	if _, ok := token.Claims.(jwt.MapClaims); !ok && !token.Valid {
-		return false
-	}
-
-	return true
 }

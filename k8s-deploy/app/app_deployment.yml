@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: go-user-api
-          image: guntoroyk/go-user-api:1.0.1
+          image: guntoroyk/go-user-api:1.0.2
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
